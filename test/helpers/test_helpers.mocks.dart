@@ -9,6 +9,7 @@ import 'dart:ui' as _i6;
 import 'package:flutter/material.dart' as _i4;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i3;
+import 'package:nick_test/models/task_model.dart' as _i8;
 import 'package:nick_test/services/tasks_service.dart' as _i7;
 import 'package:stacked_services/stacked_services.dart' as _i2;
 
@@ -675,4 +676,42 @@ class MockDialogService extends _i1.Mock implements _i2.DialogService {
 /// A class which mocks [TasksService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockTasksService extends _i1.Mock implements _i7.TasksService {}
+class MockTasksService extends _i1.Mock implements _i7.TasksService {
+  @override
+  _i5.Future<List<_i8.TaskModel>> all() => (super.noSuchMethod(
+        Invocation.method(
+          #all,
+          [],
+        ),
+        returnValue: _i5.Future<List<_i8.TaskModel>>.value(<_i8.TaskModel>[]),
+        returnValueForMissingStub:
+            _i5.Future<List<_i8.TaskModel>>.value(<_i8.TaskModel>[]),
+      ) as _i5.Future<List<_i8.TaskModel>>);
+
+  @override
+  void add(_i8.TaskModel? task) => super.noSuchMethod(
+        Invocation.method(
+          #add,
+          [task],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void remove(_i8.TaskModel? task) => super.noSuchMethod(
+        Invocation.method(
+          #remove,
+          [task],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void edit(_i8.TaskModel? task) => super.noSuchMethod(
+        Invocation.method(
+          #edit,
+          [task],
+        ),
+        returnValueForMissingStub: null,
+      );
+}

@@ -79,8 +79,11 @@ class StackedRouter extends _i1.RouterBase {
       );
     },
     _i5.ListTaskView: (data) {
+      final args = data.getArgs<ListTaskViewArguments>(
+        orElse: () => const ListTaskViewArguments(),
+      );
       return _i7.MaterialPageRoute<dynamic>(
-        builder: (context) => _i5.ListTaskView(),
+        builder: (context) => _i5.ListTaskView(key: args.key),
         settings: data,
       );
     },
@@ -99,104 +102,170 @@ class StackedRouter extends _i1.RouterBase {
   Map<Type, _i1.StackedRouteFactory> get pagesMap => _pagesMap;
 }
 
+class ListTaskViewArguments {
+  const ListTaskViewArguments({this.key});
+
+  final _i7.Key? key;
+
+  @override
+  String toString() {
+    return '{"key": "$key"}';
+  }
+
+  @override
+  bool operator ==(covariant ListTaskViewArguments other) {
+    if (identical(this, other)) return true;
+    return other.key == key;
+  }
+
+  @override
+  int get hashCode {
+    return key.hashCode;
+  }
+}
+
 extension NavigatorStateExtension on _i8.NavigationService {
   Future<dynamic> navigateToHomeView([
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
-    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)? transition,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
   ]) async {
     return navigateTo<dynamic>(Routes.homeView,
-        id: routerId, preventDuplicates: preventDuplicates, parameters: parameters, transition: transition);
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
   }
 
   Future<dynamic> navigateToStartupView([
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
-    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)? transition,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
   ]) async {
     return navigateTo<dynamic>(Routes.startupView,
-        id: routerId, preventDuplicates: preventDuplicates, parameters: parameters, transition: transition);
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
   }
 
   Future<dynamic> navigateToDetailTaskView([
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
-    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)? transition,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
   ]) async {
     return navigateTo<dynamic>(Routes.detailTaskView,
-        id: routerId, preventDuplicates: preventDuplicates, parameters: parameters, transition: transition);
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
   }
 
-  Future<dynamic> navigateToListTaskView([
+  Future<dynamic> navigateToListTaskView({
+    _i7.Key? key,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
-    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)? transition,
-  ]) async {
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  }) async {
     return navigateTo<dynamic>(Routes.listTaskView,
-        id: routerId, preventDuplicates: preventDuplicates, parameters: parameters, transition: transition);
+        arguments: ListTaskViewArguments(key: key),
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
   }
 
   Future<dynamic> navigateToFormTaskView([
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
-    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)? transition,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
   ]) async {
     return navigateTo<dynamic>(Routes.formTaskView,
-        id: routerId, preventDuplicates: preventDuplicates, parameters: parameters, transition: transition);
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
   }
 
   Future<dynamic> replaceWithHomeView([
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
-    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)? transition,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
   ]) async {
     return replaceWith<dynamic>(Routes.homeView,
-        id: routerId, preventDuplicates: preventDuplicates, parameters: parameters, transition: transition);
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
   }
 
   Future<dynamic> replaceWithStartupView([
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
-    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)? transition,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
   ]) async {
     return replaceWith<dynamic>(Routes.startupView,
-        id: routerId, preventDuplicates: preventDuplicates, parameters: parameters, transition: transition);
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
   }
 
   Future<dynamic> replaceWithDetailTaskView([
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
-    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)? transition,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
   ]) async {
     return replaceWith<dynamic>(Routes.detailTaskView,
-        id: routerId, preventDuplicates: preventDuplicates, parameters: parameters, transition: transition);
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
   }
 
-  Future<dynamic> replaceWithListTaskView([
+  Future<dynamic> replaceWithListTaskView({
+    _i7.Key? key,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
-    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)? transition,
-  ]) async {
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  }) async {
     return replaceWith<dynamic>(Routes.listTaskView,
-        id: routerId, preventDuplicates: preventDuplicates, parameters: parameters, transition: transition);
+        arguments: ListTaskViewArguments(key: key),
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
   }
 
   Future<dynamic> replaceWithFormTaskView([
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
-    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)? transition,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
   ]) async {
     return replaceWith<dynamic>(Routes.formTaskView,
-        id: routerId, preventDuplicates: preventDuplicates, parameters: parameters, transition: transition);
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
   }
 }
